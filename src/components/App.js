@@ -20,8 +20,7 @@ const App = () => (
     <div className="container">
       <Header />
       <Switch>
-        <Route exact path="/course-directory" component={Home} />
-        <Route path="/course-directory/" component={Home} />
+        <Route path={process.env.PUBLIC_URL + '/'} component={Home} />
         <Route path="/about" render={ () => <About title='About' /> } />
         <Route exact path="/teachers" component={Teachers} />
         <Route path="/teachers/:topic/:name" component={Featured} />
