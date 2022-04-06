@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  HashRouter,
+  BrowserRouter,
   Route,
   Switch
 } from 'react-router-dom';
@@ -15,21 +15,22 @@ import NotFound from './NotFound';
 import Featured from './Featured';
 
 
-const App = () => (
-  <HashRouter>
-    <div className="container">
-      <Header />
-      <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
-        <Route path="/about" render={ () => <About title='About' /> } />
-        <Route exact path="/teachers" component={Teachers} />
-        <Route path="/teachers/:topic/:name" component={Featured} />
-        <Route path="/courses" component={Courses} />
-        <Route component={Home} />
-      </Switch>
-
-    </div>
-  </HashRouter>
-);
+const App = () => {
+  return (
+    <BrowserRouter>
+      <div className="container">
+        <Header />
+        <Switch>
+          <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
+          <Route path="/about" render={ () => <About title='About' /> } />
+          <Route exact path="/teachers" component={Teachers} />
+          <Route path="/teachers/:topic/:name" component={Featured} />
+          <Route path="/courses" component={Courses} />
+          <Route component={Home} />
+        </Switch>
+      </div>
+    </BrowserRouter>
+  )
+}
 
 export default App;
